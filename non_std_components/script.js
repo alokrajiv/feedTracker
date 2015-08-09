@@ -1,13 +1,14 @@
-var uri = "requests/sample.json",
-	boo = function (myinp){
-		var ret = this.indexOf(myinp) === 0
-		return ret
-	}
-myAudio = new Audio('non_std_components/alarm.mp3'); 
+var boo = function (myinp){
+	var ret = this.indexOf(myinp) === 0
+	return ret
+},
+muteBtn = $('#muteBtn')
+myAudio = new Audio('non_std_components/alarm.mp3')
 myAudio.addEventListener('ended', function() {
 	this.currentTime = 0;
 	this.play();
-}, false);
+}, false)
+muteBtn.toggle()
 if (typeof String.prototype.startsWith != 'function') {
 	String.prototype.startsWith = boo
 }
@@ -47,13 +48,13 @@ var myfunc = function(){
 				var date = one.date,
 				str = ""
 				if(date.startsWith("2015-08")){
-					str = "FOUND!! "
-					myAudio.play();
-					$('#muteBtn').toggle()
+					str = "<h2>FOUND!!</h2> "
+					myAudio.play()
+					muteBtn.toggle()
 					notifyUser()
 					clearInterval(intervCaller)
 					var currentdate = new Date();	
-					str += "<br><br>Foud @ " + moment().calendar() + " i.e <span data-livestamp='"+new Date().getTime()/1000+"'></span>"
+					str += "<h4><br><br>Found @ " + moment().calendar() + " i.e <span data-livestamp='"+new Date().getTime()/1000+"'></span></h4>"
 					document.getElementById("content_div").innerHTML = str
 					return true
 				}
@@ -72,8 +73,9 @@ var myfunc = function(){
 	})
 }
 var intervCaller = setInterval(myfunc,3000),
-	muteFn = function(){
-		 myAudio.pause();
-	}
+muteFn = function(){
+	myAudio.pause();
+	muteBtn.toggle()
+}
 
 
