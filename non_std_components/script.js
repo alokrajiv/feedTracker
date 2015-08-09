@@ -38,7 +38,8 @@ function notifyUser() {
 var myfunc = function(){
 	$.ajax({
 		url: uri,
-		dataType: 'json',
+        contentType: 'application/json',
+		dataType: 'jsonp',
 		crossDomain: true,
 		xhrFields: {
 			withCredentials: true
