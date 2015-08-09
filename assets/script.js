@@ -3,7 +3,7 @@ var boo = function (myinp){
 	return ret
 },
 muteBtn = $('#muteBtn')
-myAudio = new Audio('non_std_components/alarm.mp3')
+myAudio = new Audio('assets/alarm.mp3')
 myAudio.addEventListener('ended', function() {
 	this.currentTime = 0;
 	this.play();
@@ -26,7 +26,7 @@ function notifyUser() {
 		Notification.requestPermission();
 	else {
 		var notification = new Notification('Hey There', {
-			icon: 'non_std_components/notif.png',
+			icon: 'assets/notif.png',
 			body: "New Appointment found!",
 		});
 
