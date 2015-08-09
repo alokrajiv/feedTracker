@@ -39,7 +39,7 @@ var myfunc = function(){
 	$.ajax({
 		url: uri,
         contentType: 'application/json',
-		dataType: 'jsonp',
+		dataType: 'json',
 		crossDomain: true,
 		xhrFields: {
 			withCredentials: true
